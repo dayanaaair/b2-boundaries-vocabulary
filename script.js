@@ -164,12 +164,12 @@ document.addEventListener("click", event => {
 const allFields = () => [...document.querySelectorAll("input[type='text'], textarea, select, input[type='checkbox']")];
 function save() {
   const state = allFields().map(field => field.type === "checkbox" ? field.checked : field.value);
-  localStorage.setItem("arusyak-boundaries-progress", JSON.stringify(state));
+  localStorage.setItem("b2-boundaries-progress", JSON.stringify(state));
   updateProgress();
 }
 function restore() {
   try {
-    const state = JSON.parse(localStorage.getItem("arusyak-boundaries-progress") || "[]");
+    const state = JSON.parse(localStorage.getItem("b2-boundaries-progress") || "[]");
     allFields().forEach((field, i) => {
       if (state[i] === undefined) return;
       if (field.type === "checkbox") field.checked = state[i];
